@@ -1,2 +1,1 @@
-# Waiting-list-optimization
-Optimizacion de lista de espera en hospitales
+# Optimizacion de lista de espera en hospitales con Pyomo

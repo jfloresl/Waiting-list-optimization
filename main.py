@@ -4,11 +4,11 @@ import pandas as pd
 xls = pd.ExcelFile('Libro1.xls')
 dias=['lunes','martes','miercoles','jueves','viernes']
 doc_1=[]
-doc_2=list()
+doc_2=[]
 pab1=list()
 dura1=list()
-para_1=list()
-para_2=list()
+para_1=[]
+para_2=[]
 rut1=list()
 
 for i in dias:
@@ -24,6 +24,9 @@ for i in dias:
     para2=df['paramedica-2'].tolist()
     rut=df['rut'].tolist()
     doc1_t=[0]*len(rut)
+    doc2_t=[0]*len(rut)
+    para1_t=[0]*len(rut)
+    para2_t=[0]*len(rut)
 
     for i in range(len(rut)):
     
@@ -37,12 +40,32 @@ for i in dias:
             a=doc_1.index(doc1[i])
             doc1_t[a]+=dura[i]
 
+        if doc2[i] not in doc_2:
+            doc_2.append(doc2[i])
+            doc2_t[i]+=dura[i]
+        else:
+            a=doc_2.index(doc2[i])
+            doc2_t[a]+=dura[i]
 
-    #print("cantida de operaciones:",len(rut1))
+        if para1[i] not in para_1:
+            para_1.append(para1[i])
+        else:
+            a=para_1.index(para1[i])
+            para1_t[a]+=dura[i]
+
+        if para2[i] not in para_2:
+            para_2.append(para2[i])
+        else:
+            a=para_2.index(para2[i])
+            para2_t[a]+=dura[i]
+
     print("pab: ",pab1)
     print("doc1: ",doc_1)
     print("doc1_t: ",doc1_t[:len(doc_1)])
-   # print(df)
+    print("doc2: ",doc_2)
+    print("doc2_t: ",doc2_t[:len(doc_2)])
+    print("para1: ",para_1)
+    print("para1_t: ",para1_t[:len(para_1)])
 
     print("\n\n")
 

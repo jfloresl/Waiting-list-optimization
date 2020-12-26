@@ -3,6 +3,13 @@ import pandas as pd
 
 xls = pd.ExcelFile('Libro1.xls')
 dias=['lunes','martes','miercoles','jueves','viernes']
+doc_1=[]
+doc_2=list()
+pab1=list()
+dura1=list()
+para_1=list()
+para_2=list()
+rut1=list()
 
 for i in dias:
     print("\n")
@@ -16,62 +23,56 @@ for i in dias:
     para1=df['paramedica-1'].tolist()
     para2=df['paramedica-2'].tolist()
     rut=df['rut'].tolist()
-    doc_1=list()
-    doc_2=list()
-    pab1=list()
-    dura1=list()
-    para_1=list()
-    para_2=list()
-    rut1=list()
-    for i in pab:
-        if i not in pab1:
-            pab1.append(i)
+    doc1_t=[0]*len(rut)
 
-    for j in dura:
-        if j not in dura1:
-            dura1.append(j)
+    for i in range(len(rut)):
+    
+        if pab[i] not in pab1:
+            pab1.append(pab[i])
 
-    for k in doc1:
-        if k not in doc_1:
-            doc_1.append(k)
+        if doc1[i] not in doc_1:
+            doc_1.append(doc1[i])
+            doc1_t[i]+=dura[i]
+        else:
+            a=doc_1.index(doc1[i])
+            doc1_t[a]+=dura[i]
 
-    for l in doc2:
-        if l not in doc_2:
-            doc_2.append(l)
 
-    for o in para1:
-        if o not in para_1:
-            para_1.append(o)
+    #print("cantida de operaciones:",len(rut1))
+    print("pab: ",pab1)
+    print("doc1: ",doc_1)
+    print("doc1_t: ",doc1_t[:len(doc_1)])
+   # print(df)
 
-    for p in para2:
-        if p not in para_2:
-            para_2.append(p)
-
-    for q in rut:
-        if q not in rut1:
-            rut1.append(q)
-
-    print("cantida de operaciones:",len(rut1))
-    print("pab",pab1)
-    print("dura",dura1)
-    print("doc1",doc_1)
-    print("doc2",doc_2)
-    print("para1",para_1)
-    print("para2",para_2)
-    print("pacientes",rut1)
     print("\n\n")
 
 
-
 f = open('file.dat','w')
-f.write("param Dura := \n")
-print("numero de pacientes")
-a=input()
-for i in range(int(a)):
-    num1 = random.randint(1, 5)
-    print("Random integer: ", num1)
-    f.write(str(num1))
+
+f.write("param Pab := \n")
+for i in pab1:
+    f.write(str(i))
     f.write('\n')
 f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param Doc1 := \n")
+for j in doc_1:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param Doc2 := \n")
+for j in doc_2:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+
 f.close()
 

@@ -1,0 +1,12 @@
+c=["Cirugía Cardiovascular",
+"Cirugía de Cabeza y Cuello",
+"Cirugía Digestiva",
+"Dermatología",
+"Ginecología y Obstetricia",
+"Neurocirugía",
+"Odontología",
+"Oftalmología",
+"Otorrinolaringología",
+"Plástica y Reparadora",
+"Traumatología",
+"Urología y Nefrología"]

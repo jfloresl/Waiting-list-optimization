@@ -1,0 +1,41 @@
+param Pab := 
+1
+3
+4
+5
+2
+;
+
+param Doc1 := 
+ab
+bc
+cd
+ef
+fg
+nan
+;
+
+param Doc2 := 
+df
+gd
+tr
+eruy
+nan
+;
+
+param Par1 := 
+rte
+rew
+dffd
+sgs
+nan
+;
+
+param Par2 := 
+popoq
+weqe
+res
+dcfv
+nan
+;
+

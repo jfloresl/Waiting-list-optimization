@@ -69,6 +69,8 @@ for i in dias:
 
     print("\n\n")
 
+    df.to_excel("prueba.xls")
+
 
 f = open('file.dat','w')
 
@@ -96,6 +98,21 @@ f.write(';')
 f.write('\n')
 f.write('\n')
 
+f.write("param Par1 := \n")
+for j in para_1:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param Par2 := \n")
+for j in para_2:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
 
 f.close()
 

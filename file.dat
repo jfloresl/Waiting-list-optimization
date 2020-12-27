@@ -127,3 +127,149 @@ param HparSem :=
 21
 ;
 
+param HdocMax := 
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+;
+
+param HparMax := 
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+45
+;
+
+param f1 := 
+1 1 1 1 1 1 1 0 0 1 0 0 
+1 0 1 1 1 0 1 1 1 0 1 1 
+1 0 1 0 1 0 0 0 1 1 1 1 
+0 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 0 1 1 1 1 1 
+1 1 0 1 1 1 1 1 1 0 1 1 
+1 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 0 1 1 0 1 1 1 0 0 
+1 1 0 0 1 1 1 1 0 1 1 1 
+1 0 1 1 1 1 1 0 1 1 0 1 
+0 1 1 1 1 1 1 1 1 1 1 1 
+1 1 1 1 1 1 1 1 1 0 0 1 
+1 1 0 1 0 1 1 1 1 1 1 0 
+1 1 1 0 1 1 1 1 1 1 1 1 
+0 0 1 0 1 0 1 1 0 1 1 1 
+0 1 1 1 1 0 1 0 1 1 1 0 
+0 1 1 1 0 1 0 1 0 0 1 1 
+0 1 1 1 1 1 1 0 1 0 0 1 
+0 0 0 0 1 1 0 1 1 1 1 0 
+1 1 1 1 1 0 1 1 1 1 1 1 
+1 1 1 1 1 1 1 0 1 1 1 1 
+1 1 1 1 1 0 0 0 1 1 1 1 
+;
+
+param paciente_rut := 
+15016352-8
+15934456-9
+15251353-1
+20515641-0
+12120285-6
+14235438-8
+8217250-9
+19870869-7
+13185489-3
+16347065-6
+;
+
+param paciente_paterno := 
+Emilda
+Elaine
+Ernestina
+Edit
+Edena
+Edit
+Egle
+Emilda
+Emilia
+Eladia
+;
+
+param paciente_materno := 
+Gudula
+Gretel
+Grazia
+Galit
+Garland
+Evelina
+Griselda
+Evacsa
+Glauco
+Gremy
+;
+
+param paciente_nombre := 
+Enara
+Emiliana
+Elisabeth
+Edna
+Einat
+Ervina
+Enola
+Ekaterina
+Edith
+Ealsa
+;
+
+param paciente_cirugia := 
+Cirugía de Cabeza y Cuello
+Cirugía de Cabeza y Cuello
+Cirugía de Cabeza y Cuello
+Ginecología y Obstetricia
+Oftalmología
+Dermatología
+Otorrinolaringología
+Oftalmología
+Ginecología y Obstetricia
+Ginecología y Obstetricia
+;
+

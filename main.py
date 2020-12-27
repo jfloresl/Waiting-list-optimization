@@ -19,11 +19,14 @@ doc1_t=[]
 doc2_t=[]
 para1_t=[]
 para2_t=[]
-
+intervencion=[]
+intervencion_doc1=[]
+intervencion_doc2=[]
+intervenciones=[]
 for j in dias:
     print("\n")
     df = pd.read_excel('Libro2.xlsx', sheet_name=j)
-    print(j)
+    #print(j)
     dura=df['duracion'].tolist()
     pab=df['pabellon'].tolist()
     doc1=df['cirujano-1'].tolist()
@@ -31,6 +34,7 @@ for j in dias:
     para1=df['paramedica-1'].tolist()
     para2=df['paramedica-2'].tolist()
     rut=df['rut'].tolist()
+    intervencion=df['intervencion'].tolist()
 
 
     for i in range(len(rut)):
@@ -41,16 +45,20 @@ for j in dias:
         if doc1[i] not in doc_1:
             doc_1.append(doc1[i])
             doc1_t.append(dura[i])
+            intervencion_doc1.append(str(c.index(intervencion[i])))
         else:
             a=doc_1.index(doc1[i])
             doc1_t[a]+=dura[i]
+            intervencion_doc1[a]+=" "+str(c.index(intervencion[i]))
 
         if doc2[i] not in doc_2:
             doc_2.append(doc2[i])
             doc2_t.append(dura[i])
+            intervencion_doc2.append(str(c.index(intervencion[i])))
         else:
             a=doc_2.index(doc2[i])
             doc2_t[a]+=dura[i]
+            intervencion_doc2[a]+=" "+str(c.index(intervencion[i]))
 
         if para1[i] not in para_1:
             para_1.append(para1[i])
@@ -65,6 +73,8 @@ for j in dias:
         else:
             a=para_2.index(para2[i])
             para2_t[a]+=dura[i]
+#print("sssss:",intervencion_doc1)
+#print("ttttt: ",intervencion_doc2)
 '''
     print("pab: ",pab1)
     print("doc1: ",doc_1)
@@ -80,13 +90,17 @@ for j in dias:
 for k in range(len(doc_1)):
     doctores.append(doc_1[k])
     doctores_t.append(doc1_t[k])
+    intervenciones.append(intervencion_doc1[k])
 for l in range(len(doc_2)):
     if doc_2[l] not in doctores:
         doctores.append(doc_2[l])
         doctores_t.append(doc2_t[l])
+        intervenciones.append(intervencion_doc2[l])
     else:
         a=doctores.index(doc_2[l])
         doctores_t[a]+=doc2_t[l]
+        intervenciones[a]+=" "+str(c.index(intervencion[l]))
+
 
 for m in range(len(para_1)):
     paramedicas.append(para_1[m])
@@ -100,12 +114,12 @@ for n in range(len(para_2)):
         a=paramedicas.index(para_2[n])
         paramedicas_t[a]+=para2_t[n]
 
-print(doctores)
-print(doctores_t)
-print(paramedicas)
-print(paramedicas_t)
+#print(doctores)
+#print(doctores_t)
+#print(paramedicas)
+#print(paramedicas_t)
 
-print("\n\n\n")
+#print("\n\n\n")
 print("ingrese cant de pacientes")
 paciente=input()
 
@@ -128,11 +142,18 @@ for i in range(int(paciente)):
     paciente_ap_materno.append(names[random.randint(219,327)])
     paciente_cirugia.append(c[random.randint(0,11)])
 
-print(paciente_pri)
+#print(paciente_pri)
 
-f1=[]
-
-
+f1 = [[0 for col in range(12)] for row in range(len(doctores))]
+for i in range(len(doctores)):
+    a=(intervenciones[i].split())
+    res = [] 
+    for k in a: 
+        if k not in res: 
+            res.append(k) 
+    for j in range (len(res)):
+        f1[i][int(res[j])]=1
+print(f1)
 f = open('file.dat','w')
 
 f.write("param Pab := \n")
@@ -176,6 +197,75 @@ for j in paramedicas_t:
 f.write(';')
 f.write('\n')
 f.write('\n')
+
+f.write("param HdocMax := \n")
+for j in doctores_t:
+    f.write(str(45))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param HparMax := \n")
+for j in paramedicas_t:
+    f.write(str(45))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+
+
+f.write("param f1 := \n")
+for i in f1:
+    for j in range(12):
+        f.write(str(i[j])+' ')
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param paciente_rut := \n")
+for j in paciente_rut:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param paciente_paterno := \n")
+for j in paciente_ap_paterno:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param paciente_materno := \n")
+for j in paciente_ap_materno:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param paciente_nombre := \n")
+for j in paciente_nombre:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param paciente_cirugia := \n")
+for j in paciente_cirugia:
+    f.write(str(j))
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+
 
 f.close()
 

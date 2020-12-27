@@ -1,5 +1,7 @@
 import random
 import pandas as pd
+from names import n as names
+from cirugias import c
 
 dias=['lunes','martes','miercoles','jueves','viernes']
 doc_1=[]
@@ -89,6 +91,7 @@ for l in range(len(doc_2)):
 for m in range(len(para_1)):
     paramedicas.append(para_1[m])
     paramedicas_t.append(para1_t[m])
+
 for n in range(len(para_2)):
     if para_2[n] not in paramedicas:
         paramedicas.append(para_2[n])
@@ -101,6 +104,33 @@ print(doctores)
 print(doctores_t)
 print(paramedicas)
 print(paramedicas_t)
+
+print("\n\n\n")
+print("ingrese cant de pacientes")
+paciente=input()
+
+paciente_rut=[]
+paciente_nombre=[]
+paciente_ap_paterno=[]
+paciente_ap_materno=[]
+paciente_pri=[]
+paciente_cirugia=[]
+
+for i in range(1,int(paciente)+1):
+    paciente_pri.append(i)
+
+random.shuffle(paciente_pri)
+
+for i in range(int(paciente)):
+    paciente_rut.append(str(random.randint(4000000, 24000000))+"-"+str(random.randint(0,9)))
+    paciente_nombre.append(names[random.randint(0,109)])
+    paciente_ap_paterno.append(names[random.randint(110,218)])
+    paciente_ap_materno.append(names[random.randint(219,327)])
+    paciente_cirugia.append(c[random.randint(0,11)])
+
+print(paciente_pri)
+
+f1=[]
 
 
 f = open('file.dat','w')

@@ -47,22 +47,16 @@ def coin_init(model, doc1, doc2):
   else:
     return 0
 
-def coin_init2(model, para1, para2):
-  if para1 == para2:
-    return 1
-  else:
-    return 0
-
 model.Coin = Param(model.J, model.J, initialize=coin_init, domain=Boolean)
-model.Coin2 = Param(model.K, model.K, initialize=coin_init2, domain=Boolean)
+
+print("asdf")
 
 
-
-model.t = Var(model.P, model.J, model.J,model.K,model.K, model.PAB, domain=Boolean)
+model.t = Var(model.P, model.J, model.J, model.PAB, domain=Boolean)
 
 
 def obj_expression(model):
-    return sum(model.t[p,doc1,doc2,para1,para2,pab] * model.Pri[p] for p in model.P for doc1 in model.J for doc2 in model.J for para1 in model.K for para2 in model.K for pab in model.PAB)
+    return sum(model.t[p,doc1,doc2,pab] * model.Pri[p] for p in model.P for doc1 in model.J for doc2 in model.J for pab in model.PAB)
 
 model.OBJ = Objective(rule = obj_expression,sense=maximize)
 
@@ -75,57 +69,36 @@ def ax_constraint_rule(model, i):
 model.AxbConstraint = Constraint(model.I, rule=ax_constraint_rule)
 '''
 #El doctor primario no puede ser el mismo que el secundario.
-def coin_rule(model,p,doc1,doc2,para1,para2):
-  return (None, sum(model.Coin[doc1,doc2] * model.t[p,doc1,doc2,para1,para2,PAB] for PAB in model.PAB), 0)
+def coin_rule(model,p,doc1,doc2):
+  return (None, sum(model.Coin[doc1,doc2] * model.t[p,doc1,doc2,PAB] for PAB in model.PAB), 0)
 
-model.restCoincidencia = Constraint(model.P, model.J, model.J,model.K, model.K, rule=coin_rule)
-
-
-#la paramedica primario no puede ser la misma que la secundaria.
-def coin_rule2(model,p,doc1,doc2,para1,para2):
-  return (None, sum(model.Coin2[para1,para2] * model.t[p,doc1,doc2,para1,para2,PAB] for PAB in model.PAB), 0)
-
-model.restCoincidencia2 = Constraint(model.P, model.J, model.J,model.K, model.K, rule=coin_rule2)
-
-
+model.restCoincidencia = Constraint(model.P, model.J, model.J, rule=coin_rule)
 
 #Las operaciones realizadas durante el d ́ıa no pueden durar m ́as de X hora en total (8 horas en total)
 def max_jornada(model):
-  return (None, sum(model.t[p,doc1,doc2,para1,para2,pab] * model.Dura[p] for p in model.P for doc1 in model.J for doc2 in model.J for para1 in model.K for para2 in model.K for pab in model.PAB), model.Jornada)
+  return (None, sum(model.t[p,doc1,doc2,pab] * model.Dura[p] for p in model.P for doc1 in model.J for doc2 in model.J for pab in model.PAB), model.Jornada)
 
 model.restJornada = Constraint(rule=max_jornada)
 
 #un paciente no puede ser operado mas de una vez el dia sabado
 def operacion_unica(model, p):
-  return (None, sum(model.t[p,doc1,doc2,para1,para2,pab] for doc1 in model.J for doc2 in model.J for para1 in model.K for para2 in model.K for pab in model.PAB) , 1)
+  return (None, sum(model.t[p,doc1,doc2,pab] for doc1 in model.J for doc2 in model.J for pab in model.PAB) , 1)
 
 model.restOperacionUnica = Constraint(model.P, rule=operacion_unica)
 
 #Un m ́edico no puedo trabajar m ́as de las horas permitidas. (suma sus horas como doctor principal y como secundario)
 def max_horas_medico(model, doctor):
-  return (None, sum(model.t[p,doctor,doc2,para1,para2,pab] * model.Dura[p] for p in model.P for doc2 in model.J for para1 in model.K for para2 in model.K for pab in model.PAB) + \
-  sum(model.t[p,doc1,doctor,para1,para2,pab] * model.Dura[p] for p in model.P for doc1 in model.J for para1 in model.K for para2 in model.K for pab in model.PAB) , model.HDocMax[doctor] - model.HDocSem[doctor])
+  return (None, sum(model.t[p,doctor,doc2,pab] * model.Dura[p] for p in model.P for doc2 in model.J for pab in model.PAB) + \
+  sum(model.t[p,doc1,doctor,pab] * model.Dura[p] for p in model.P for doc1 in model.J for pab in model.PAB) , model.HDocMax[doctor] - model.HDocSem[doctor])
 
 model.restMaxHorasMedico = Constraint(model.J, rule=max_horas_medico)
-
-
-
-#Una paramedica no puedo trabajar m ́as de las horas permitidas. (suma sus horas como paramedica principal y como secundario)
-def max_horas_medico2(model, paramedica):
-  return (None, sum(model.t[p,doc1,doc2,paramedica,para2,pab] * model.Dura[p] for p in model.P for doc1 in model.J for doc2 in model.J for para2 in model.K for pab in model.PAB) + \
-  sum(model.t[p,doc1,doc2,para1,paramedica,pab] * model.Dura[p] for p in model.P for doc1 in model.J for doc2 in model.J for para1 in model.K for pab in model.PAB) , model.HParMax[paramedica] - model.HParSem[paramedica])
-
-model.restMaxHorasMedico2 = Constraint(model.K, rule=max_horas_medico2)
-
-
-
-
 
 #Un m ́edico no puedo trabajar m ́as de las horas permitidas.
 
 #Cada médico debe ser especialista en el área de la operación a realizar
 def medicos_especialistas(model,p,doc1):
-    return (None, sum(model.t[p,doc1,doc2,para1,para2,pab] for doc2 in model.J for para1 in model.K for para2 in model.K for pab in model.PAB), model.F1[doc1, p])
+    return (None, sum(model.t[p,doc1,doc2,pab] for doc2 in model.J for pab in model.PAB), model.F1[doc1, p])
 
 model.restEspecialista = Constraint(model.P, model.J, rule=medicos_especialistas)
 
+print("end")

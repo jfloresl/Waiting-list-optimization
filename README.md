@@ -16,8 +16,13 @@ XlsxWriter==1.3.7
 
 2.  Usar el comando 'python main.py' y selecciona la cantidad de pacientes que se espera atender en el dia sabado(Mientas mas pacientes se eligen mas tarda la solucion del modelo)
 
-3. Resolver el problema con el comando 'pyomo solve modelo.py file.dat --solver=glpk'
+3. Resolver el problema con el comando:
 
+'pyomo solve modelo.py file.dat --solver=glpk'
+
+Para una solucion completa, contemplando la asignacion de paramedicas, usar el comando:
+
+'pyomo solve modelo_paramedicas.py file.dat --solver=glpk'
 
 4. Al final del archivo results.yml se encuentra la calendarizacion del dia sabado.
  

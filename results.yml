@@ -6,12 +6,12 @@
 # ----------------------------------------------------------
 Problem: 
 - Name: unknown
-  Lower bound: 55.0
-  Upper bound: 55.0
+  Lower bound: 21.0
+  Upper bound: 21.0
   Number of objectives: 1
-  Number of constraints: 414876
-  Number of variables: 829441
-  Number of nonzeros: 5806081
+  Number of constraints: 248936
+  Number of variables: 497665
+  Number of nonzeros: 3483649
   Sense: maximize
 # ----------------------------------------------------------
 #   Solver Information
@@ -24,7 +24,7 @@ Solver:
       Number of bounded subproblems: 1
       Number of created subproblems: 1
   Error rc: 0
-  Time: 140.42365860939026
+  Time: 113.30422830581665
 # ----------------------------------------------------------
 #   Solution Information
 # ----------------------------------------------------------
@@ -36,26 +36,18 @@ Solution:
   Message: None
   Objective:
     OBJ:
-      Value: 55
+      Value: 21
   Variable:
-    t[11102292-1,Aniko,Annabel,Aranzazu,Arcadia,1]:
+    t[11576690-0,Aniana,Aniko,Ashley,Asteria,1]:
       Value: 1
-    t[12179409-4,Aniria,Annabel,Ascla,Aranzazu,1]:
+    t[18765718-2,Aniria,Annabel,Ascla,Aranzazu,1]:
       Value: 1
-    t[12461580-5,Aniko,Aniana,April,Arabela,2]:
+    t[19221026-9,Aniana,Aniko,April,Arabela,2]:
       Value: 1
-    t[13531802-7,Aniria,Aniana,April,Arabela,2]:
+    t[21911416-7,Aniko,Aniana,April,Arabela,2]:
       Value: 1
-    t[15774704-9,Aniko,Aniana,April,Arabela,2]:
+    t[6015320-7,Aniana,Aniko,April,Arabela,2]:
       Value: 1
-    t[18289756-0,Aniko,Aniana,April,Arabela,2]:
-      Value: 1
-    t[21435833-6,Aniko,Aniana,April,Arabela,2]:
-      Value: 1
-    t[7223444-6,Aniana,Aniko,April,Arabela,2]:
-      Value: 1
-    t[9084945-8,Aniko,Aniana,April,Arabela,2]:
-      Value: 1
-    t[9955870-1,Aniko,Aniana,April,Arabela,2]:
+    t[7877593-2,Aniko,Aniana,April,Arabela,2]:
       Value: 1
   Constraint: No values

@@ -120,7 +120,7 @@ for n in range(len(para_2)):
 #print(paramedicas_t)
 
 #print("\n\n\n")
-print("ingrese cant de pacientes")
+print("ingrese cantidad de pacientes que se espera atenter")
 paciente=input()
 
 paciente_rut=[]
@@ -153,10 +153,10 @@ for i in range(len(doctores)):
             res.append(k) 
     for j in range (len(res)):
         f1[i][int(res[j])]=1
-print(f1)
+#print(f1)
 f = open('file.dat','w')
 
-f.write("param Pab := \n")
+f.write("set Pab := \n")
 for i in pab1:
     f.write(str(i))
     f.write('\n')
@@ -164,7 +164,7 @@ f.write(';')
 f.write('\n')
 f.write('\n')
 
-f.write("param Doctores := \n")
+f.write("set J := \n") #doctores
 for i in doctores:
     f.write(str(i))
     f.write('\n')
@@ -173,7 +173,7 @@ f.write('\n')
 f.write('\n')
 
 
-f.write("param Paramedicas := \n")
+f.write("set K := \n") #Paramedicas
 for i in paramedicas:
     f.write(str(i))
     f.write('\n')
@@ -181,34 +181,50 @@ f.write(';')
 f.write('\n')
 f.write('\n')
 
-
-f.write("param HdocSem := \n")
-for j in doctores_t:
+f.write("set cirugias := \n") #cirujias
+for j in c:
     f.write(str(j))
     f.write('\n')
 f.write(';')
 f.write('\n')
 f.write('\n')
 
-f.write("param HparSem := \n")
-for j in paramedicas_t:
-    f.write(str(j))
-    f.write('\n')
-f.write(';')
-f.write('\n')
-f.write('\n')
 
-f.write("param HdocMax := \n")
+f.write("param HDocSem := \n")
+u=0
 for j in doctores_t:
-    f.write(str(45))
+    f.write(str(doctores[u])+" "+str(j))
+    u+=1
     f.write('\n')
 f.write(';')
 f.write('\n')
 f.write('\n')
 
-f.write("param HparMax := \n")
+f.write("param HParSem := \n")
+w=0
 for j in paramedicas_t:
-    f.write(str(45))
+    f.write(str(paramedicas[w])+" "+str(j))
+    w+=1
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+u=0
+f.write("param HDocMax := \n")
+for j in doctores_t:
+    f.write(str(doctores[u])+" "+str(45))
+    u+=1
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+f.write("param HParMax := \n")
+w=0
+for j in paramedicas_t:
+    f.write(str(paramedicas[w])+" "+str(45))
+    w+=1
     f.write('\n')
 f.write(';')
 f.write('\n')
@@ -217,15 +233,17 @@ f.write('\n')
 
 
 f.write("param f1 := \n")
+t=0
 for i in f1:
     for j in range(12):
-        f.write(str(i[j])+' ')
-    f.write('\n')
+        f.write(str(doctores[t])+" "+str(c[j])+" "+str(i[j])+"\n")
+    t+=1
+
 f.write(';')
 f.write('\n')
 f.write('\n')
 
-f.write("param paciente_rut := \n")
+f.write("set P := \n")
 for j in paciente_rut:
     f.write(str(j))
     f.write('\n')
@@ -234,32 +252,40 @@ f.write('\n')
 f.write('\n')
 
 f.write("param paciente_paterno := \n")
+r=0
 for j in paciente_ap_paterno:
-    f.write(str(j))
+    f.write(str(paciente_rut[r])+" "+str(j))
+    r+=1
     f.write('\n')
 f.write(';')
 f.write('\n')
 f.write('\n')
 
 f.write("param paciente_materno := \n")
+r=0
 for j in paciente_ap_materno:
-    f.write(str(j))
+    f.write(str(paciente_rut[r])+" "+str(j))
+    r+=1
     f.write('\n')
 f.write(';')
 f.write('\n')
 f.write('\n')
 
 f.write("param paciente_nombre := \n")
+r=0
 for j in paciente_nombre:
-    f.write(str(j))
+    f.write(str(paciente_rut[r])+" "+str(j))
+    r+=1
     f.write('\n')
 f.write(';')
 f.write('\n')
 f.write('\n')
 
 f.write("param paciente_cirugia := \n")
+r=0
 for j in paciente_cirugia:
-    f.write(str(j))
+    f.write(str(paciente_rut[r])+" "+str(j))
+    r+=1
     f.write('\n')
 f.write(';')
 f.write('\n')

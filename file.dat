@@ -1,275 +1,324 @@
-param Pab := 
-2
-9
-11
-8
-13
-6
-12
-5
-4
-7
-3
-14
+set Pab := 
 1
-10
+3
+4
+2
 ;
 
-param Doctores := 
-Ginebra
-Geri
-Gigi
-Gilda
-Geneva
-Gioconda
-Ghislaine
+set J := 
 Georgette
-Geraldine
-Gianina
 Gertrudis
-Anthea
-Annette
-Anisia
-Aniana
+Geraldine
+Geri
+Geneva
+Ghislaine
 Aniria
-Aniko
-Annika
-Anoha
+Anisia
 Anke
+Aniko
 Annabel
-Annelie
+Aniana
 ;
 
-param Paramedicas := 
-Ariana
-Ardelia
-Arabela
-Aranzazu
-Argentina
-Aricel
+set K := 
 Araci
-Arella
-April
-Arcadia
-Aretusa
-Ariella
+Arabela
 Araminta
-Arlene
-Ashley
+April
+Aranzazu
+Arcadia
+Aspasia
 Asuncion
 Aruna
-Aspasia
-Autumm
-Auberta
-Athenas
-Aurilia
-Audi
-Aurek
-Atenas
-Asteria
 Ascla
-Augusta
+Asteria
+Ashley
 ;
 
-param HdocSem := 
-27
-50
-32
-33
-33
-29
-28
-31
-38
-33
-36
-27
-33
-45
-23
-41
-25
-33
-18
-41
-54
-30
+set cirugias := 
+Cirugía_Cardiovascular
+Cirugía_de_Cabeza_y_Cuello
+Cirugía_Digestiva
+Dermatología
+Ginecología_y_Obstetricia
+Neurocirugía
+Odontología
+Oftalmología
+Otorrinolaringología
+Plástica_y_Reparadora
+Traumatología
+Urología_y_Nefrología
 ;
 
-param HparSem := 
-42
-30
-20
-32
-33
-23
-11
-29
-20
-26
-22
-26
-31
-25
-28
-23
-29
-29
-30
-21
-21
-26
-33
-28
-32
-22
-27
-21
+param HDocSem := 
+Georgette 16
+Gertrudis 24
+Geraldine 8
+Geri 20
+Geneva 13
+Ghislaine 27
+Aniria 32
+Anisia 21
+Anke 22
+Aniko 10
+Annabel 15
+Aniana 8
 ;
 
-param HdocMax := 
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
+param HParSem := 
+Araci 19
+Arabela 26
+Araminta 12
+April 19
+Aranzazu 25
+Arcadia 7
+Aspasia 10
+Asuncion 19
+Aruna 16
+Ascla 23
+Asteria 20
+Ashley 20
 ;
 
-param HparMax := 
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
-45
+param HDocMax := 
+Georgette 45
+Gertrudis 45
+Geraldine 45
+Geri 45
+Geneva 45
+Ghislaine 45
+Aniria 45
+Anisia 45
+Anke 45
+Aniko 45
+Annabel 45
+Aniana 45
+;
+
+param HParMax := 
+Araci 45
+Arabela 45
+Araminta 45
+April 45
+Aranzazu 45
+Arcadia 45
+Aspasia 45
+Asuncion 45
+Aruna 45
+Ascla 45
+Asteria 45
+Ashley 45
 ;
 
 param f1 := 
-1 1 1 1 1 1 1 0 0 1 0 0 
-1 0 1 1 1 0 1 1 1 0 1 1 
-1 0 1 0 1 0 0 0 1 1 1 1 
-0 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 0 1 1 1 1 1 
-1 1 0 1 1 1 1 1 1 0 1 1 
-1 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 0 1 1 0 1 1 1 0 0 
-1 1 0 0 1 1 1 1 0 1 1 1 
-1 0 1 1 1 1 1 0 1 1 0 1 
-0 1 1 1 1 1 1 1 1 1 1 1 
-1 1 1 1 1 1 1 1 1 0 0 1 
-1 1 0 1 0 1 1 1 1 1 1 0 
-1 1 1 0 1 1 1 1 1 1 1 1 
-0 0 1 0 1 0 1 1 0 1 1 1 
-0 1 1 1 1 0 1 0 1 1 1 0 
-0 1 1 1 0 1 0 1 0 0 1 1 
-0 1 1 1 1 1 1 0 1 0 0 1 
-0 0 0 0 1 1 0 1 1 1 1 0 
-1 1 1 1 1 0 1 1 1 1 1 1 
-1 1 1 1 1 1 1 0 1 1 1 1 
-1 1 1 1 1 0 0 0 1 1 1 1 
+Georgette Cirugía_Cardiovascular 1
+Georgette Cirugía_de_Cabeza_y_Cuello 0
+Georgette Cirugía_Digestiva 1
+Georgette Dermatología 0
+Georgette Ginecología_y_Obstetricia 1
+Georgette Neurocirugía 0
+Georgette Odontología 1
+Georgette Oftalmología 1
+Georgette Otorrinolaringología 0
+Georgette Plástica_y_Reparadora 0
+Georgette Traumatología 0
+Georgette Urología_y_Nefrología 0
+Gertrudis Cirugía_Cardiovascular 1
+Gertrudis Cirugía_de_Cabeza_y_Cuello 0
+Gertrudis Cirugía_Digestiva 1
+Gertrudis Dermatología 0
+Gertrudis Ginecología_y_Obstetricia 1
+Gertrudis Neurocirugía 1
+Gertrudis Odontología 0
+Gertrudis Oftalmología 1
+Gertrudis Otorrinolaringología 1
+Gertrudis Plástica_y_Reparadora 1
+Gertrudis Traumatología 0
+Gertrudis Urología_y_Nefrología 0
+Geraldine Cirugía_Cardiovascular 0
+Geraldine Cirugía_de_Cabeza_y_Cuello 0
+Geraldine Cirugía_Digestiva 0
+Geraldine Dermatología 0
+Geraldine Ginecología_y_Obstetricia 1
+Geraldine Neurocirugía 0
+Geraldine Odontología 1
+Geraldine Oftalmología 0
+Geraldine Otorrinolaringología 0
+Geraldine Plástica_y_Reparadora 1
+Geraldine Traumatología 1
+Geraldine Urología_y_Nefrología 0
+Geri Cirugía_Cardiovascular 0
+Geri Cirugía_de_Cabeza_y_Cuello 1
+Geri Cirugía_Digestiva 1
+Geri Dermatología 0
+Geri Ginecología_y_Obstetricia 0
+Geri Neurocirugía 1
+Geri Odontología 0
+Geri Oftalmología 1
+Geri Otorrinolaringología 0
+Geri Plástica_y_Reparadora 0
+Geri Traumatología 0
+Geri Urología_y_Nefrología 1
+Geneva Cirugía_Cardiovascular 1
+Geneva Cirugía_de_Cabeza_y_Cuello 1
+Geneva Cirugía_Digestiva 0
+Geneva Dermatología 1
+Geneva Ginecología_y_Obstetricia 0
+Geneva Neurocirugía 0
+Geneva Odontología 0
+Geneva Oftalmología 1
+Geneva Otorrinolaringología 1
+Geneva Plástica_y_Reparadora 1
+Geneva Traumatología 1
+Geneva Urología_y_Nefrología 0
+Ghislaine Cirugía_Cardiovascular 0
+Ghislaine Cirugía_de_Cabeza_y_Cuello 1
+Ghislaine Cirugía_Digestiva 1
+Ghislaine Dermatología 1
+Ghislaine Ginecología_y_Obstetricia 0
+Ghislaine Neurocirugía 0
+Ghislaine Odontología 1
+Ghislaine Oftalmología 0
+Ghislaine Otorrinolaringología 1
+Ghislaine Plástica_y_Reparadora 0
+Ghislaine Traumatología 1
+Ghislaine Urología_y_Nefrología 1
+Aniria Cirugía_Cardiovascular 0
+Aniria Cirugía_de_Cabeza_y_Cuello 1
+Aniria Cirugía_Digestiva 1
+Aniria Dermatología 0
+Aniria Ginecología_y_Obstetricia 1
+Aniria Neurocirugía 1
+Aniria Odontología 0
+Aniria Oftalmología 1
+Aniria Otorrinolaringología 1
+Aniria Plástica_y_Reparadora 1
+Aniria Traumatología 1
+Aniria Urología_y_Nefrología 1
+Anisia Cirugía_Cardiovascular 1
+Anisia Cirugía_de_Cabeza_y_Cuello 0
+Anisia Cirugía_Digestiva 1
+Anisia Dermatología 1
+Anisia Ginecología_y_Obstetricia 0
+Anisia Neurocirugía 1
+Anisia Odontología 1
+Anisia Oftalmología 1
+Anisia Otorrinolaringología 0
+Anisia Plástica_y_Reparadora 1
+Anisia Traumatología 1
+Anisia Urología_y_Nefrología 0
+Anke Cirugía_Cardiovascular 1
+Anke Cirugía_de_Cabeza_y_Cuello 1
+Anke Cirugía_Digestiva 1
+Anke Dermatología 1
+Anke Ginecología_y_Obstetricia 0
+Anke Neurocirugía 0
+Anke Odontología 1
+Anke Oftalmología 0
+Anke Otorrinolaringología 0
+Anke Plástica_y_Reparadora 0
+Anke Traumatología 1
+Anke Urología_y_Nefrología 1
+Aniko Cirugía_Cardiovascular 0
+Aniko Cirugía_de_Cabeza_y_Cuello 0
+Aniko Cirugía_Digestiva 1
+Aniko Dermatología 0
+Aniko Ginecología_y_Obstetricia 1
+Aniko Neurocirugía 0
+Aniko Odontología 0
+Aniko Oftalmología 1
+Aniko Otorrinolaringología 0
+Aniko Plástica_y_Reparadora 1
+Aniko Traumatología 1
+Aniko Urología_y_Nefrología 0
+Annabel Cirugía_Cardiovascular 1
+Annabel Cirugía_de_Cabeza_y_Cuello 0
+Annabel Cirugía_Digestiva 0
+Annabel Dermatología 0
+Annabel Ginecología_y_Obstetricia 1
+Annabel Neurocirugía 1
+Annabel Odontología 0
+Annabel Oftalmología 1
+Annabel Otorrinolaringología 1
+Annabel Plástica_y_Reparadora 0
+Annabel Traumatología 1
+Annabel Urología_y_Nefrología 0
+Aniana Cirugía_Cardiovascular 0
+Aniana Cirugía_de_Cabeza_y_Cuello 1
+Aniana Cirugía_Digestiva 0
+Aniana Dermatología 0
+Aniana Ginecología_y_Obstetricia 0
+Aniana Neurocirugía 0
+Aniana Odontología 1
+Aniana Oftalmología 1
+Aniana Otorrinolaringología 0
+Aniana Plástica_y_Reparadora 0
+Aniana Traumatología 0
+Aniana Urología_y_Nefrología 0
 ;
 
-param paciente_rut := 
-15016352-8
-15934456-9
-15251353-1
-20515641-0
-12120285-6
-14235438-8
-8217250-9
-19870869-7
-13185489-3
-16347065-6
+set P := 
+4228129-0
+7034466-9
+18927353-9
+20804068-0
+4980115-5
+21007286-8
+4581623-1
+11449600-2
+18147303-8
+4557295-1
 ;
 
 param paciente_paterno := 
-Emilda
-Elaine
-Ernestina
-Edit
-Edena
-Edit
-Egle
-Emilda
-Emilia
-Eladia
+4228129-0 Elba
+7034466-9 Emanuela
+18927353-9 Eugenia
+20804068-0 Electra
+4980115-5 Emperatriz
+21007286-8 Erica
+4581623-1 Elvira
+11449600-2 Eustoquia
+18147303-8 Elba
+4557295-1 Eumelia
 ;
 
 param paciente_materno := 
-Gudula
-Gretel
-Grazia
-Galit
-Garland
-Evelina
-Griselda
-Evacsa
-Glauco
-Gremy
+4228129-0 Goldie
+7034466-9 Geraldina
+18927353-9 Gimena
+20804068-0 Gaby
+4980115-5 Gretel
+21007286-8 Giannina
+4581623-1 Gitel
+11449600-2 Giselda
+18147303-8 Giselle
+4557295-1 Gaia
 ;
 
 param paciente_nombre := 
-Enara
-Emiliana
-Elisabeth
-Edna
-Einat
-Ervina
-Enola
-Ekaterina
-Edith
-Ealsa
+4228129-0 Elfrida
+7034466-9 Enya
+18927353-9 Edie
+20804068-0 Elfrida
+4980115-5 Elvia
+21007286-8 Elisea
+4581623-1 Eustacia
+11449600-2 Estelle
+18147303-8 Eveline
+4557295-1 Edeline
 ;
 
 param paciente_cirugia := 
-Cirugía de Cabeza y Cuello
-Cirugía de Cabeza y Cuello
-Cirugía de Cabeza y Cuello
-Ginecología y Obstetricia
-Oftalmología
-Dermatología
-Otorrinolaringología
-Oftalmología
-Ginecología y Obstetricia
-Ginecología y Obstetricia
+4228129-0 Cirugía_Cardiovascular
+7034466-9 Urología_y_Nefrología
+18927353-9 Urología_y_Nefrología
+20804068-0 Odontología
+4980115-5 Cirugía_de_Cabeza_y_Cuello
+21007286-8 Traumatología
+4581623-1 Plástica_y_Reparadora
+11449600-2 Plástica_y_Reparadora
+18147303-8 Cirugía_de_Cabeza_y_Cuello
+4557295-1 Cirugía_Cardiovascular
 ;
 

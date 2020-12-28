@@ -3,13 +3,13 @@
 ## Requerimientos
 pip install -r requeriments.txt
 
-numpy==1.19.4
-pandas==1.2.0
-python-dateutil==2.8.1
-pytz==2020.5
-six==1.15.0
-xlrd==1.2.0
-XlsxWriter==1.3.7
+*numpy==1.19.4
+*pandas==1.2.0
+*python-dateutil==2.8.1
+*pytz==2020.5
+*six==1.15.0
+*xlrd==1.2.0
+*XlsxWriter==1.3.7
 
 ## Modo de uso
 1. Usar excel Libro2.xlsx para la planificacion o usar el comando 'python gen.py' para crear una planificacion de prueba.

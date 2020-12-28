@@ -19,7 +19,9 @@ XlsxWriter==1.3.7
 3. Resolver el problema con el comando 'pyomo solve modelo.py file.dat --solver=glpk'
 
 
-4. Al final del archivo results.yml se encuentra la solucion del modelo, el formato de la solucion es:
+4. Al final del archivo results.yml se encuentra la calendarizacion del dia sabado.
+ 
+## Formato de la solucion
 
 t[11576690-0,Aniana,Aniko,Ashley,Asteria,1]:
 

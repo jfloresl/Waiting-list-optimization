@@ -129,11 +129,13 @@ paciente_ap_paterno=[]
 paciente_ap_materno=[]
 paciente_pri=[]
 paciente_cirugia=[]
+paciente_dura=[]
 
 for i in range(1,int(paciente)+1):
     paciente_pri.append(i)
 
 random.shuffle(paciente_pri)
+duraciones=[1,2,3,4]
 
 for i in range(int(paciente)):
     paciente_rut.append(str(random.randint(4000000, 24000000))+"-"+str(random.randint(0,9)))
@@ -141,6 +143,7 @@ for i in range(int(paciente)):
     paciente_ap_paterno.append(names[random.randint(110,218)])
     paciente_ap_materno.append(names[random.randint(219,327)])
     paciente_cirugia.append(c[random.randint(0,11)])
+    paciente_dura.append(random.choices(duraciones, weights=(50, 25, 15, 10), k=1)[0])
 
 #print(paciente_pri)
 
@@ -291,6 +294,26 @@ f.write(';')
 f.write('\n')
 f.write('\n')
 
+f.write("param Dura := \n")
+r=0
+for j in paciente_dura:
+    f.write(str(paciente_rut[r])+" "+str(j))
+    r+=1
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
+
+
+f.write("param Pri := \n")
+r=0
+for j in paciente_pri:
+    f.write(str(paciente_rut[r])+" "+str(j))
+    r+=1
+    f.write('\n')
+f.write(';')
+f.write('\n')
+f.write('\n')
 
 
 f.close()

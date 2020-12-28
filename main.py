@@ -159,7 +159,7 @@ for i in range(len(doctores)):
 #print(f1)
 f = open('file.dat','w')
 
-f.write("set Pab := \n")
+f.write("set PAB := \n")
 for i in pab1:
     f.write(str(i))
     f.write('\n')
